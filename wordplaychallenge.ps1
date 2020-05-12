@@ -51,9 +51,9 @@ function Sum-CharValues2 {
     param (
         [String]$text = "Iron Scripter"
     )
-    # I tried to avoid the loop and see how it affects performance. This is faster but it's really hard to read if you don't know what it's supposed to do, so I stayed with the "slow" version for the next parts.
+    # I tried to avoid the loop and see how it affects performance. This is faster but it's really hard to read, so I stayed with the "slow" version for the next parts.
 
-    $values = $text[0..($text.Length)] | ForEach-Object {[char]$_ -as [int]}
+    $values = $text[0..$text.Length] | ForEach-Object {[char]$_ -as [int]}
 
     return ($values | Measure-Object -Sum).Sum
 }
